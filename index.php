@@ -52,7 +52,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Please enter password">
-						<input type="password" name="lpassword" id="lpassword" placeholder="Votre mot de passe" required>
+						<input class="input100" type="password" name="lpassword" id="lpassword" placeholder="Votre mot de passe" required>
 						<!-- <input class="input100" type="password" name="pass" placeholder="Mot de passe"> -->
 						<span class="focus-input100"></span>
 					</div>
