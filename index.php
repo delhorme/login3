@@ -62,7 +62,7 @@
 							Vous avez oublié vos
 						</span>
 
-						<a href="compte.php" class="txt2">
+						<a href="signin.php" class="txt2">
 							Nom d'utilisateur / Mot de passe ?
 						</a>
 					</div>
