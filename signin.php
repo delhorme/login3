@@ -63,21 +63,9 @@
 						<span class="focus-input100"></span>
 					</div>
 
-					<!-- <div class="text-right p-t-13 p-b-23">
-						<span class="txt1">
-							Vous avez oublié vos
-						</span>
-
-						<a href="#" class="txt2">
-							Nom d'utilisateur / Mot de passe ?
-						</a>
-					</div> -->
-
 					<div class="container-login100-form-btn">
-						<!-- <button class="login100-form-btn">
-							Se connecter
-						</button> -->
 						<input class="login100-form-btn m-b-16" type="submit" name="formsend" id="formsend" value="Ok">
+						<input type="submit" name="formsend" id="formsend" value="Signin">
 					</div>
 
 					<div class="flex-col-c p-t-170 p-b-40">
