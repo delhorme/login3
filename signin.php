@@ -65,7 +65,6 @@
 
 					<div class="container-login100-form-btn">
 						<input class="login100-form-btn m-b-16" type="submit" name="formsend" id="formsend" value="Ok">
-						<input type="submit" name="formsend" id="formsend" value="Signin">
 					</div>
 
 					<div class="flex-col-c p-t-170 p-b-40">
