@@ -80,14 +80,13 @@
 						<input class="login100-form-btn m-b-16" type="submit" name="formsend" id="formsend" value="Ok">
 					</div>
 
-					<!-- <div class="flex-col-c p-t-170 p-b-40">
+					<div class="flex-col-c p-t-170 p-b-40">
 						<span class="txt1 p-b-9">
-							Vous n'avez pas de compte ?
+						<a href="index.php" class="txt3">
+							Retour à la page de connexion
 						</span>
 
-						<a href="#" class="txt3">
-							S'inscrire maintenant
-						</a> -->
+					</div>
 					</div>
 				</form>
 			</div>
