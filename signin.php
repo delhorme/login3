@@ -29,14 +29,6 @@
 
 <body>
 
-
-    <!-- <form method="post">
-        <input type="email" name="email" id="email" placeholder="Votre Email" required><br />
-        <input type="password" name="password" id="password" placeholder="Entrez votre mot de passe" required><br />
-        <input type="password" name="cpassword" id="cpassword" placeholder="Confirmez votre mot de passe" required><br />
-        <input type="submit" name="formsend" id="formsend" value="Ok">
-    </form> -->
-
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -126,11 +118,6 @@
 
             }
 
-            // if (password_verify($password, $hashpass)) {
-            //     echo "le mot de passe est le même";
-            // } else {
-            //     echo "le mot de passe est différent";
-            // }
         } else {
             echo "les champs ne sont pas tous remplis";
         }
