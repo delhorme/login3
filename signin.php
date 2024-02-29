@@ -82,10 +82,12 @@
 
 					<div class="flex-col-c p-t-170 p-b-40">
 						<span class="txt1 p-b-9">
-						<a href="index.php" class="txt3">
-							Retour à la page de connexion
+							Déja un compte
 						</span>
 
+						<a href="index.php" class="txt3">
+							Retour à la page de connexion
+						</a>
 					</div>
 					</div>
 				</form>
