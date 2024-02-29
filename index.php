@@ -77,7 +77,7 @@
 						</span>
 
 						<a href="compte.php" class="txt3">
-							S'inscrire maintenant !
+							S'inscrire maintenant
 						</a>
 					</div>
 				</form>
