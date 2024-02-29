@@ -82,7 +82,7 @@
 
 					<div class="flex-col-c p-t-170 p-b-40">
 						<span class="txt1 p-b-9">
-							Déja un compte
+							Déja un compte ?
 						</span>
 
 						<a href="index.php" class="txt3">
