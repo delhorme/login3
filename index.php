@@ -78,7 +78,7 @@
 							Vous n'avez pas de compte ?
 						</span>
 
-						<a href="compte.php" class="txt3">
+						<a href="signin.php" class="txt3">
 							S'inscrire maintenant
 						</a>
 					</div>
