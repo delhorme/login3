@@ -61,7 +61,7 @@
 						<input class="login100-form-btn m-b-16" type="submit" name="formsend" id="formsend" value="Ok">
 					</div>
 
-					<div class="flex-col-c p-t-170 p-b-30">
+					<div class="flex-col-c p-t-170 p-b-40">
 						<span class="txt1 p-b-9">
 							Déja un compte ?
 						</span>
