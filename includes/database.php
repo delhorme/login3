@@ -1,8 +1,8 @@
 <?php
 define('HOST', 'localhost');
-define('DB_NAME', 'u789471193_siteweb');
-define('USER', 'u789471193_root');
-define('PASS', '12756428Ld');
+define('DB_NAME', 'u789471193_site');
+define('USER', 'u789471193_admin');
+define('PASS', '12756428Ld38!');
 
 try {
     $db = new PDO("mysql:host=" . HOST . ";dbname=" . DB_NAME, USER, PASS);
