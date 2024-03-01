@@ -56,6 +56,8 @@
 							placeholder="Confirmez votre mot de passe" required>
 						<span class="focus-input100"></span>
 					</div>
+					
+					<?php include 'includes/signin.php'; ?>
 
 					<div class="container-login100-form-btn">
 						<input class="login100-form-btn m-b-16" type="submit" name="formsend" id="formsend" value="Ok">

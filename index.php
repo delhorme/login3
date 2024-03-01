@@ -51,6 +51,8 @@
 						<span class="focus-input100"></span>
 					</div>
 
+					<?php include 'includes/login.php'; ?>
+
 					<div class="text-right p-t-13 p-b-23">
 						<span class="txt1">
 							Vous avez oublié vos
