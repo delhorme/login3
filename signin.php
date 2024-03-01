@@ -67,7 +67,7 @@
 						</span>
 
 						<a href="index.php" class="txt3">
-							Retour à la page de connexion !
+							Retour à la page de connexion
 						</a>
 					</div>
 			</div>
