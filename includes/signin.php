@@ -20,7 +20,7 @@ if (isset($_POST['formsend'])) {
             ]);
             $result = $c->rowCount();
 
-            // echo $result;
+             echo $result;
 
             if ($result == 0) {
                 $q = $db->prepare("INSERT INTO users (email,password) VALUES(:email,:password)");
