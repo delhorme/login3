@@ -58,7 +58,7 @@
 							Vous avez oublié vos
 						</span>
 
-						<a href="signin.php" class="txt2">
+						<a href="creationcompte.php" class="txt2">
 							Nom d'utilisateur / Mot de passe ?
 						</a>
 					</div>
