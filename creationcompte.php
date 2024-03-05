@@ -32,17 +32,17 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+				<form method="post"class="login100-form validate-form p-l-55 p-r-55 p-t-178">
 					<span class="login100-form-title">
 						Test - Garde corps
 					</span>
 
 
-    <form method="post">
+    <!-- <form method="post">
         <input type="email" name="lemail" id="lemail" placeholder="Votre Email" required><br />
         <input type="password" name="lpassword" id="lpassword" placeholder="Entrez votre mot de passe" required><br />
         <input type="submit" name="formlogin" id="formlogin" value="Login">
-    </form>
+    </form> -->
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
 						<!-- <input class="input100" type="text" name="username" placeholder="Nom d'utilisateur"> -->
