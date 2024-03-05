@@ -37,6 +37,13 @@
 						Test - Garde corps
 					</span>
 
+					<h1>Login</h1>
+    <form method="post">
+        <input type="email" name="lemail" id="lemail" placeholder="Votre Email" required><br />
+        <input type="password" name="lpassword" id="lpassword" placeholder="Entrez votre mot de passe" required><br />
+        <input type="submit" name="formlogin" id="formlogin" value="Login">
+    </form>
+
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
 						<!-- <input class="input100" type="text" name="username" placeholder="Nom d'utilisateur"> -->
 						<input class="input100" type="email" name="email" id="email" placeholder="Votre Email" required>
