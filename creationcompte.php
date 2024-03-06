@@ -36,27 +36,6 @@
 					<span class="login100-form-title">
 						Test - Garde corps
 					</span>
-
-								<?php
-									if (isset($_SESSION['email']) && (isset($_SESSION['date']))) {
-								?>
-
-										<p>Votre Email :
-											<?= $_SESSION['email']; ?>
-										</p>
-										<p>Votre date :
-											<?= $_SESSION['date']; ?>
-										</p>
-
-								<?php
-									} else {
-										echo "Veuillez vous connecter à votre compte";
-									}
-
-
-									include 'includes/database.php';
-									global $db;
-								?>
 					
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
 						<!-- <input class="input100" type="text" name="username" placeholder="Nom d'utilisateur"> -->
