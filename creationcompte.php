@@ -54,6 +54,11 @@
         echo "Veuillez vous connecter à votre compte";
     }
 
+
+    include 'includes/database.php';
+    global $db;
+    ?>
+
     <!-- <form method="post">
         <input type="email" name="lemail" id="lemail" placeholder="Votre Email" required><br />
         <input type="password" name="lpassword" id="lpassword" placeholder="Entrez votre mot de passe" required><br />
