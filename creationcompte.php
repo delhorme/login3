@@ -117,10 +117,10 @@
 				$q->execute([
 					'email' => $email,
 					'password' => $hashpass
-					echo "Le compte a été créer !";
+
 				]);
 
-
+				echo "Le compte a été créer !";
 			}
 
 		} else {
