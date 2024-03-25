@@ -30,7 +30,7 @@ if (isset($_POST['formsend'])) {
                 ]);
                 echo "Le compte a été créé";
             } else {
-                a
+                echo "erreur";
             }
         }
 
