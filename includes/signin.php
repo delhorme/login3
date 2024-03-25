@@ -35,7 +35,7 @@ if (isset($_POST['formsend'])) {
         }
 
     } else {
-        echo "les champs ne sont pas tous remplis sigin";
+        echo "les champs ne sont pas tous remplis dans sigin";
     }
 }
 
