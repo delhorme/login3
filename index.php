@@ -128,8 +128,10 @@
 			}
 
 		} else {
-			echo "les champs ne sont pas tous remplis index";
+			echo "2";
 		}
+	} else {
+		echo "3";
 	}
 
 	?>
