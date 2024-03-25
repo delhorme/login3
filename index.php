@@ -123,7 +123,7 @@
 					'password' => $hashpass
 
 				]);
-
+			}else{echo"1"}
 
 			}
 
