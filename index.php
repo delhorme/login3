@@ -128,7 +128,7 @@
 			}
 
 		} else {
-			echo "les champs ne sont pas tous remplis";
+			echo "les champs ne sont pas tous remplis index";
 		}
 	}
 
