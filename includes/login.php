@@ -15,7 +15,7 @@ if (isset($_POST['formlogin'])) {
             if (password_verify($lpassword, $result['password'])) {
                 echo "Le mot de passe est bon, connexion en cours";
                 $_SESSION['email'] = $result['email'];
-                $_SESSION['date'] = $result['date'];
+                $_SESSION['password'] = $result['password'];
 
             } else {
                 echo "Le mot de passe n'est pas correct";
