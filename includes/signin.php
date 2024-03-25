@@ -30,12 +30,12 @@ if (isset($_POST['formsend'])) {
                 ]);
                 echo "Le compte a été créé";
             } else {
-                echo "Cet Email éxiste déja !";
+                a
             }
         }
 
     } else {
-        echo "les champs ne sont pas tous remplis";
+        echo "les champs ne sont pas tous remplis sigin";
     }
 }
 
