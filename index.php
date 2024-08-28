@@ -55,7 +55,7 @@
 
 					<div class="text-right p-t-13 p-b-23">
 						<span class="txt1">
-							Vous avez oublié vos
+							Vous avez oublié voss
 						</span>
 
 						<a href="creationcompte.php" class="txt2">
