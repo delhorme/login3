@@ -34,9 +34,7 @@ if (isset($_POST['formsend'])) {
             }
         }
 
-    } else {
-        <index class="php"></index>;
-    }
+
 }
 
 ?>
