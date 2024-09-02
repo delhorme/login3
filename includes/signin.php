@@ -36,7 +36,7 @@ if (isset($_POST['formsend'])) {
 
     } else {
         echo "Le compte a été créé";
-        <page1 class="php"></page1>
+
     }
 }
 
