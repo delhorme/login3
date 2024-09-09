@@ -121,15 +121,8 @@
 					'password' => $hashpass
 
 				]);
-			}else {
-				echo"1";
 			}
-
-		} else {
-			echo "2";
 		}
-	} else {
-		echo "3";
 	}
 
 	?>
