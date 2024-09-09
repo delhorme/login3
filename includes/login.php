@@ -22,9 +22,9 @@ if (isset($_POST['formlogin'])) {
         $user = $q->fetch();
 
         // Si un utilisateur est trouvé, vérifier le mot de passe
-        if ($user && password_verify($password, $user['password'])) {
+        if ($user && password_verify($password, $users['password'])) {
             // Les identifiants sont corrects, on stocke l'utilisateur en session
-            $_SESSION['user'] = $user['email'];
+            $_SESSION['users'] = $users['email'];
 
             // Redirection vers page1.php
             header('Location: ../page1.php');
