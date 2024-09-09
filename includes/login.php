@@ -1,7 +1,8 @@
 <?php
+session_start(); // Démarrer la session pour l'utilisateur
 
+// Vérifier si le formulaire de connexion a été soumis
 if (isset($_POST['formlogin'])) {
-    extract($_POST);
 
     if (!empty($lemail) && !empty($lpassword)) {
 
@@ -27,4 +28,5 @@ if (isset($_POST['formlogin'])) {
         echo "Veuillez compléter l'ensemble des champs";
     }
 }
+
 
