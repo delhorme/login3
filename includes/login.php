@@ -1,6 +1,6 @@
 <?php
 
-/*if (isset($_POST['formlogin'])) {
+if (isset($_POST['formlogin'])) {
     extract($_POST);
 
     if (!empty($lemail) && !empty($lpassword)) {
@@ -26,7 +26,7 @@
     } else {
         echo "Veuillez compléter l'ensemble des champs";
     }
-}*/
+}
 <?php
 session_start(); // Démarre une session
 
