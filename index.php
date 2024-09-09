@@ -66,11 +66,6 @@
 						</a>
 					</div>
 
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Se connecter
-						</button>
-					</div>
 
 					<div class="flex-col-c p-t-170 p-b-40">
 						<span class="txt1 p-b-9">
