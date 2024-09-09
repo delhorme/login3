@@ -26,6 +26,7 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<!--===============================================================================================-->
 </head>
+
 <form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action="includes/login.php" method="POST">
     <span class="login100-form-title">
         Webexcial
@@ -46,6 +47,7 @@
     </div>
 </form>
 
+
 <body>
 
 	<div class="limiter">
@@ -57,18 +59,18 @@
 					</span>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-						<input class="input100" type="email" name="lemail" id="lemail" placeholder="Votre email"
-							required>
-						<!-- <input class="input100" type="text" name="username" placeholder="Email"> -->
-						<span class="focus-input100"></span>
-					</div>
+        <input class="input100" type="email" name="lemail" id="lemail" placeholder="Votre email" required>
+        <span class="focus-input100"></span>
+    </div>
 
-					<div class="wrap-input100 validate-input" data-validate="Please enter password">
-						<input class="input100" type="password" name="lpassword" id="lpassword"
-							placeholder="Votre mot de passe" required>
-						<!-- <input class="input100" type="password" name="pass" placeholder="Mot de passe"> -->
-						<span class="focus-input100"></span>
-					</div>
+    <div class="wrap-input100 validate-input" data-validate="Please enter password">
+        <input class="input100" type="password" name="lpassword" id="lpassword" placeholder="Votre mot de passe" required>
+        <span class="focus-input100"></span>
+    </div>
+
+    <div class="container-login100-form-btn">
+        <button class="login100-form-btn" type="submit" name="formsend">Se connecter</button>
+    </div>
 
 					<?php include 'includes/login.php'; ?>
 
