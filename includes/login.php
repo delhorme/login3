@@ -9,7 +9,13 @@ if (isset($_POST['formlogin'])) {
     $email = htmlspecialchars($_POST['lemail']);
     $password = htmlspecialchars($_POST['lpassword']);
 
-    // Vérifier que les champs ne sont pas vides
+    // Vérifier que les champs ne sont pas videstry {
+        include 'database.php'; // Ensure this file sets up the $db variable properly
+        global $db;
+    } catch (Exception $e) {
+        die("Database connection failed: " . $e->getMessage());
+    }
+    
     if (!empty($email) && !empty($password)) {
 
         // Connexion à la base de données
