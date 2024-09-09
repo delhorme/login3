@@ -17,14 +17,14 @@ if (isset($_POST['formlogin'])) {
         global $db;
 
         // Préparer la requête pour récupérer l'utilisateur
-        $q = $db->prepare("SELECT * FROM users WHERE email = :email");
+        $q = $db->prepare("SELECT * FROM user WHERE email = :email");
         $q->execute(['email' => $email]);
         $user = $q->fetch();
 
         // Si un utilisateur est trouvé, vérifier le mot de passe
-        if ($user && password_verify($password, $users['password'])) {
+        if ($user && password_verify($password, $user['password'])) {
             // Les identifiants sont corrects, on stocke l'utilisateur en session
-            $_SESSION['users'] = $users['email'];
+            $_SESSION['user'] = $user['email'];
 
             // Redirection vers page1.php
             header('Location: https://sitedetest.store/page1.php');
