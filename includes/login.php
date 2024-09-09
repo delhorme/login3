@@ -27,7 +27,7 @@ if (isset($_POST['formlogin'])) {
             $_SESSION['users'] = $users['email'];
 
             // Redirection vers page1.php
-            header('Location: ../page1.php');
+            header('Location: https://sitedetest.store/page1.php');
             exit();
         } else {
             // Si les identifiants sont incorrects, afficher un message d'erreur
