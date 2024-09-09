@@ -37,7 +37,7 @@
 			<div class="wrap-login100">
 				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178">
 					<span class="login100-form-title">
-						Webexcial
+						Webexcials
 					</span>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
