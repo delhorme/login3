@@ -41,11 +41,6 @@
 					</span>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-        <input class="input100" type="email" name="lemail" id="lemail" placeholder="Votre email" required>
-        <span class="focus-input100"></span>
-    </div>
-
-	<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
     <input class="input100" type="email" name="lemail" id="lemail" placeholder="Votre email" required>
     <span class="focus-input100"></span>
 </div>
@@ -54,6 +49,10 @@
     <input class="input100" type="password" name="lpassword" id="lpassword" placeholder="Votre mot de passe" required>
     <span class="focus-input100"></span>
 </div>
+
+    <div class="container-login100-form-btn">
+        <button class="login100-form-btn" type="submit" name="formsend">Se connecter</button>
+    </div>
 
 					<?php include 'includes/login.php'; ?>
 
