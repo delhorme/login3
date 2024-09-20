@@ -49,7 +49,7 @@
         <input class="input100" type="password" name="lpassword" id="lpassword" placeholder="Votre mot de passe" required>
         <span class="focus-input100"></span>
     </div>
-	<span class="focus-input100"></span>
+
     <div class="container-login100-form-btn">
         <button class="login100-form-btn" type="submit" name="formsend">Se connecter</button>
     </div>
