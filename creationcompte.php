@@ -125,6 +125,8 @@
 			echo "les champs ne sont pas tous remplis !";
 		}
 	}
+	echo "Le compte a été créer !";
+	header('Location: https://delhorme.github.io/2alpes/index.html');
 	exit;
 	?>
 
