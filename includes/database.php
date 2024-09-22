@@ -5,7 +5,8 @@ define('USER', 'u789471193_admin');
 define('PASS', '12756428Ld38!');
 
 try {
-    $db = new PDO("mysql:host=" . HOST . ";dbname=" . DB_NAME, USER, PASS);
+    $db = new PDO('mysql:host=localhost;dbname=your_database', 'username', 'password');
+
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
 } catch (PDOException $e) {
