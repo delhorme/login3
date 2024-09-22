@@ -56,7 +56,6 @@
 							placeholder="Confirmez votre mot de passe" required>
 						<span class="focus-input100"></span>
 					</div>
-
 					
 					<div class="container-login100-form-btn">
 						<input class="login100-form-btn m-b-16" type="submit" name="formsend" id="formsend" value="Ok">
@@ -119,7 +118,6 @@
 					'password' => $hashpass
 
 				]);
-
 
 			}
 

@@ -27,9 +27,6 @@
 	<!--===============================================================================================-->
 </head>
 
-
-
-
 <body>
 
 	<div class="limiter">
@@ -65,7 +62,6 @@
 							Nom d'utilisateur / Mot de passe ?
 						</a>
 					</div>
-
 
 					<div class="flex-col-c p-t-170 p-b-40">
 						<span class="txt1 p-b-9">
