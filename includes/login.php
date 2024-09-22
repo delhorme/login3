@@ -24,7 +24,7 @@ if (isset($_POST['formsend'])) {
         }
 
         try {
-            require 'includes/database1.php'; // Assurez-vous que la connexion à la base de données est établie
+            require 'includes/database.php'; // Assurez-vous que la connexion à la base de données est établie
             echo"connexion à la base de donnée établie !";
 
         } catch (PDOException $e) {
