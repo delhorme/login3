@@ -128,10 +128,10 @@
 		}
 	}
 	echo "Le compte a été créer !";
+	header('Location: page1.php');
+exit;
 	?>
 
 </body>
 
 </html>
-header('Location: login.php');
-exit;
