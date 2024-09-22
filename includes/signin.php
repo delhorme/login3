@@ -1,40 +1,39 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['formsend'])) {
-    $semail = $_POST['semail'] ?? '';
-    $password = $_POST['password'] ?? '';
-    $cpassword = $_POST['cpassword'] ?? '';
+if (isset($_POST['formsend'])) {
 
-    // Check if inputs are not empty
-    if (!empty($password) && !empty($cpassword) && !empty($semail)) {
-        if ($password === $cpassword) {
-            // Hash the password
-            $hashpass = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
+    $semail = $_POST['semail'] ?? null;
+    $password = $_POST['password'] ?? null;
+    $cpassword = $_POST['cpassword'] ?? null;
 
-            // Check if email already exists
-            $stmt = $db->prepare("SELECT email FROM users WHERE email = :email");
-            $stmt->execute(['email' => $semail]);
-
-            if ($stmt->rowCount() === 0) {
-                // Insert new user
-                $stmt = $db->prepare("INSERT INTO users (email, password) VALUES (:email, :password)");
-                $stmt->execute([
-                    'email' => $semail,
-                    'password' => $hashpass
-                ]);
-                echo "Le compte a été créé"; // Account created message
-            } else {
-                echo "L'email est déjà utilisé"; // Email in use message
-            }
-        } else {
-            echo "Les mots de passe ne correspondent pas"; // Passwords do not match message
-        }
-    } else {
-        echo "Tous les champs sont requis"; // All fields required message
+    if (empty($semail) || empty($password) || empty($cpassword)) {
+        echo "Tous les champs sont requis.";
+        exit;
     }
-} else {
-    header('Location: page1.php');
-    exit;
-}
 
+    if ($password !== $cpassword) {
+        echo "Les mots de passe ne correspondent pas.";
+        exit;
+    }
+
+    $options = ['cost' => 12];
+    $hashpass = password_hash($password, PASSWORD_BCRYPT, $options);
+
+    try {
+        $c = $db->prepare("SELECT email FROM users WHERE email = :email");
+        $c->execute(['email' => $semail]);
+        $result = $c->rowCount();
+
+        if ($result == 0) {
+            $q = $db->prepare("INSERT INTO users (email,password) VALUES(:email,:password)");
+            $q->execute(['email' => $semail, 'password' => $hashpass]);
+            header('Location: page1.php');
+            exit;
+        } else {
+            echo "Erreur: L'email existe déjà.";
+        }
+    } catch (PDOException $e) {
+        echo "Erreur de base de données: " . $e->getMessage();
+    }
+}
 ?>
