@@ -36,7 +36,7 @@ if (isset($_POST['formsend'])) {
 
     } else {
         echo "Le compte a été créé !!!!";
-        header('Location: page1.php');
+        header('Location: https://delhorme.github.io/2alpes/index.html');
 exit;
 
     }
