@@ -30,12 +30,14 @@ if (isset($_POST['formsend'])) {
                 ]);
                 echo "Le compte a été créé";
             } else {
-                echo "erreur";
+                echo "erreur";  
             }
         }
 
     } else {
-        echo "Le compte a été créé";
+        echo "Le compte a été créé !!!!";
+        header('Location: page1.php');
+exit;
 
     }
 }
