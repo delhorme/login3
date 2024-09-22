@@ -1,3 +1,5 @@
+<?php
+session_start(); // Démarrer la session pour l'utilisateur
 // includes/login.php
 if (isset($_POST['formsend'])) {
     // Récupérer les données du formulaire
@@ -33,3 +35,5 @@ if (isset($_POST['formsend'])) {
         echo "Veuillez remplir tous les champs.";
     }
 }
+?>
+s
