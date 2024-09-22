@@ -1,11 +1,13 @@
 <?php
-session_start(); // Démarrer la session pour l'utilisateur
+if (session_status() === PHP_SESSION_NONE) {
+    session_start(); // Démarrer la session si ce n'est déjà fait
 
+}
 
 // Vérifiez si le formulaire a été soumis
 
 if (isset($_POST['formsend'])) {
-    // Récupérer les données du formulaire
+    // Récupérer et découper les données du formulaire
 
     $email = trim($_POST['lemail']);
     $password = trim($_POST['lpassword']);
@@ -13,8 +15,20 @@ if (isset($_POST['formsend'])) {
     // Vérifiez que les champs ne sont pas vides
 
     if (!empty($email) && !empty($password)) {
-        require 'includes/database.php'; // Utilisez require pour vous assurer que le fichier est inclus
+        
+        // Valider le format de l'e-mail
 
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            echo "Invalid email format.";
+            exit();
+        }
+
+        try {
+            require 'includes/database.php'; // Assurez-vous que la connexion à la base de données est établie
+
+        } catch (PDOException $e) {
+            die("Database connection failed: " . $e->getMessage());
+        }
 
         // Préparer une requête pour vérifier les informations utilisateur
 
@@ -22,24 +36,21 @@ if (isset($_POST['formsend'])) {
         $query->execute(['email' => $email]);
         $user = $query->fetch();
 
-        // Vérifier si l'utilisateur existe
+        // Vérifiez si l'utilisateur existe et vérifiez le mot de passe
 
         if ($user && password_verify($password, $user['password'])) {
-            // Le mot de passe est correct, l'utilisateur est authentifié
+            // Utilisateur authentifié
 
             $_SESSION['user_id'] = $user['id']; // Stocker l'ID utilisateur en session
 
-            
             header("Location: page1.php"); // Rediriger vers la page 1
-
 
             exit();
         }
 
-        // Afficher les messages d'erreur
+        // Afficher un message d'erreur générique
 
-        $errorMessage = $user ? "Incorrect password." : "No user found with this email.";
-        echo $errorMessage;
+        echo "Invalid email or password.";
     } else {
         echo "Please fill in all fields.";
     }
