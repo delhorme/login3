@@ -1,38 +1,45 @@
 <?php
 
 if (isset($_POST['formsend'])) {
-    // Using filter_input for better security
-    $semail = filter_input(INPUT_POST, 'semail', FILTER_VALIDATE_EMAIL);
-    $password = filter_input(INPUT_POST, 'password');
-    $cpassword = filter_input(INPUT_POST, 'cpassword');
 
-    // Check if necessary fields are filled
-    if ($password && $cpassword && $semail) {
-        if ($password === $cpassword) {
-            // Secure password hashing with cost
-            $hashpass = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
+    extract($_POST);
 
-            // Prepared statement to check existing email
-            $query = $db->prepare("SELECT email FROM users WHERE email = :email");
-            $query->execute(['email' => $semail]);
+    if (!empty($password) && !empty($cpassword) && !empty($semail)) {
 
-            if ($query->rowCount() === 0) {
-                // Prepared statement to insert new user
-                $insertQuery = $db->prepare("INSERT INTO users (email, password) VALUES(:email, :password)");
-                $insertQuery->execute(['email' => $semail, 'password' => $hashpass]);
+        if ($password == $cpassword) {
+
+            $options = [
+                'cost' => 12,
+            ];
+
+            $hashpass = password_hash($password, PASSWORD_BCRYPT, $options);
+
+            $c = $db->prepare("SELECT email FROM users WHERE email = :email");
+            $c->execute([
+                'email' => $semail
+            ]);
+            $result = $c->rowCount();
+
+             echo $result;
+
+            if ($result == 0) {
+                $q = $db->prepare("INSERT INTO users (email,password) VALUES(:email,:password)");
+                $q->execute([
+                    'email' => $semail,
+                    'password'  => $hashpass
+                ]);
                 echo "Le compte a été créé";
             } else {
-                echo "Erreur: l'adresse e-mail existe déjà.";  
+                echo "erreur";  
             }
-        } else {
-            echo "Les mots de passe ne correspondent pas.";
         }
+
     } else {
-        echo "Veuillez remplir tous les champs requis.";
+        echo "Le compte a été créé !!!!";
+        header('Location: index.php');
+exit;
+
     }
-} else {
-    header('Location: index.php');
-    exit;
 }
 
 ?>
