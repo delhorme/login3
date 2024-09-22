@@ -32,7 +32,6 @@ if (isset($_POST['formsend'])) {
             
             header("Location: page1.php"); // Rediriger vers la page 1
 
-            }
 
             exit();
         }
