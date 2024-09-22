@@ -1,30 +1,41 @@
 <?php
-session_start(); // Start session for the user
+session_start(); // Démarrer la session pour l'utilisateur
 
-// Check if form has been submitted
+
+// Vérifiez si le formulaire a été soumis
+
 if (isset($_POST['formsend'])) {
-    // Retrieve form data
+    // Récupérer les données du formulaire
+
     $email = trim($_POST['lemail']);
     $password = trim($_POST['lpassword']);
 
-    // Validate that fields are not empty
-    if (!empty($email) && !empty($password)) {
-        require 'includes/database.php'; // Use require to ensure the file is included
+    // Vérifiez que les champs ne sont pas vides
 
-        // Prepare query to check user information
+    if (!empty($email) && !empty($password)) {
+        require 'includes/database.php'; // Utilisez require pour vous assurer que le fichier est inclus
+
+
+        // Préparer une requête pour vérifier les informations utilisateur
+
         $query = $db->prepare("SELECT * FROM users WHERE email = :email");
         $query->execute(['email' => $email]);
         $user = $query->fetch();
 
-        // Check if user exists
+        // Vérifier si l'utilisateur existe
+
         if ($user && password_verify($password, $user['password'])) {
-            // Password is correct, user is authenticated
-            $_SESSION['user_id'] = $user['id']; // Store user ID in session
-            header("Location: page1.php"); // Redirect to page1
+            // Le mot de passe est correct, l'utilisateur est authentifié
+
+            $_SESSION['user_id'] = $user['id']; // Stocker l'ID utilisateur en session
+
+            header("Location: page1.php"); // Rediriger vers la page 1
+
             exit();
         }
 
-        // Display error messages
+        // Afficher les messages d'erreur
+
         $errorMessage = $user ? "Incorrect password." : "No user found with this email.";
         echo $errorMessage;
     } else {
