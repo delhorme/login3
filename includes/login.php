@@ -1,41 +1,35 @@
+// includes/login.php
+if (isset($_POST['formsend'])) {
+    // Récupérer les données du formulaire
+    $email = $_POST['lemail'];
+    $password = $_POST['lpassword'];
 
-<?php
-session_start(); // Démarrer la session pour l'utilisateur
-
-// Vérifier si le formulaire de connexion a été soumis
-if (isset($_POST['formlogin'])) {
-
-    // Récupérer les valeurs envoyées depuis le formulaire
-    $email = htmlspecialchars($_POST['lemail']);
-    $password = htmlspecialchars($_POST['lpassword']);
-
-    // Vérifier que les champs ne sont pas vides
+    // Vérifiez si les champs ne sont pas vides
     if (!empty($email) && !empty($password)) {
+        include 'includes/database.php'; // Inclure la connexion à la base de données
 
-        // Connexion à la base de données
-        include 'database.php';
-        global $db;
+        // Requête pour vérifier les informations de l'utilisateur
+        $query = $db->prepare("SELECT * FROM users WHERE email = :email");
+        $query->execute(['email' => $email]);
+        $user = $query->fetch();
 
-        // Préparer la requête pour récupérer l'utilisateur
-        $q = $db->prepare("SELECT * FROM user WHERE email = :email");
-        $q->execute(['email' => $email]);
-        $user = $q->fetch();
-
-        // Si un utilisateur est trouvé, vérifier le mot de passe
-        if ($user && password_verify($password, $user['password'])) {
-            // Les identifiants sont corrects, on stocke l'utilisateur en session
-            $_SESSION['user'] = $user['email'];
-
-            // Redirection vers page1.php
-            header('Location: https://sitedetest.store/page1.php');
-            exit();
+        // Vérifiez si l'utilisateur existe
+        if ($user) {
+            // Vérifiez le mot de passe
+            if (password_verify($password, $user['password'])) {
+                // Mot de passe correct, l'utilisateur est authentifié
+                // Démarrer la session et rediriger vers page1
+                session_start();
+                $_SESSION['user_id'] = $user['id']; // Assurez-vous d'avoir un champ ID dans votre table users
+                header("Location: page1.php"); // Redirige vers la page1
+                exit();
+            } else {
+                echo "Mot de passe incorrect.";
+            }
         } else {
-            // Si les identifiants sont incorrects, afficher un message d'erreur
-            echo "Email ou mot de passe incorrect.";
+            echo "Aucun utilisateur trouvé avec cet e-mail.";
         }
-
     } else {
         echo "Veuillez remplir tous les champs.";
     }
 }
-?>
