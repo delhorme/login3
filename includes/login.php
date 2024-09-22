@@ -31,17 +31,7 @@ if (isset($_POST['formsend'])) {
 
             
             header("Location: page1.php"); // Rediriger vers la page 1
-            
-            else {
-                $attemptCount = isset($_SESSION['attemptCount']) ? $_SESSION['attemptCount'] : 0;
-                $_SESSION['attemptCount'] = $attemptCount + 1;
-                if ($attemptCount >= 3) {
-                    echo "Too many incorrect login attempts. Please try again later.";
-                    header("Location: login.php"); // Redirect back to login page
-                    exit();
-                } else {
-                    echo "Incorrect email or password.";
-                }
+
             }
 
             exit();
