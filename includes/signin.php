@@ -2,38 +2,44 @@
 
 if (isset($_POST['formsend'])) {
 
-    $semail = $_POST['semail'] ?? null;
-    $password = $_POST['password'] ?? null;
-    $cpassword = $_POST['cpassword'] ?? null;
+    extract($_POST);
 
-    if (empty($semail) || empty($password) || empty($cpassword)) {
-        echo "Tous les champs sont requis.";
-        exit;
-    }
+    if (!empty($password) && !empty($cpassword) && !empty($semail)) {
 
-    if ($password !== $cpassword) {
-        echo "Les mots de passe ne correspondent pas.";
-        exit;
-    }
+        if ($password == $cpassword) {
 
-    $options = ['cost' => 12];
-    $hashpass = password_hash($password, PASSWORD_BCRYPT, $options);
+            $options = [
+                'cost' => 12,
+            ];
 
-    try {
-        $c = $db->prepare("SELECT email FROM users WHERE email = :email");
-        $c->execute(['email' => $semail]);
-        $result = $c->rowCount();
+            $hashpass = password_hash($password, PASSWORD_BCRYPT, $options);
 
-        if ($result == 0) {
-            $q = $db->prepare("INSERT INTO users (email,password) VALUES(:email,:password)");
-            $q->execute(['email' => $semail, 'password' => $hashpass]);
-            header('Location: page1.php');
-            exit;
-        } else {
-            echo "Erreur: L'email existe déjà.";
+            $c = $db->prepare("SELECT email FROM users WHERE email = :email");
+            $c->execute([
+                'email' => $semail
+            ]);
+            $result = $c->rowCount();
+
+             echo $result;
+
+            if ($result == 0) {
+                $q = $db->prepare("INSERT INTO users (email,password) VALUES(:email,:password)");
+                $q->execute([
+                    'email' => $semail,
+                    'password'  => $hashpass
+                ]);
+                echo "Le compte a été créé";
+            } else {
+                echo "erreur";  
+            }
         }
-    } catch (PDOException $e) {
-        echo "Erreur de base de données: " . $e->getMessage();
+
+    } else {
+        echo "Le compte a été créé !!!!";
+        header('Location: page1.php');
+exit;
+
     }
 }
+
 ?>
