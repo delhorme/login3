@@ -133,3 +133,5 @@
 </body>
 
 </html>
+header('Location: login.php');
+exit;
