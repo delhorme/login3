@@ -1,57 +1,46 @@
 <?php
+// Start the session if it hasn't been started yet
 if (session_status() === PHP_SESSION_NONE) {
-    session_start(); // Démarrer la session si ce n'est déjà fait
-
+    session_start();
 }
 
-// Vérifiez si le formulaire a été soumis
-
+// Check if the form has been submitted
 if (isset($_POST['formsend'])) {
-    // Récupérer et découper les données du formulaire
-
-    $email = trim($_POST['lemail']);
+    // Retrieve and sanitize form data
+    $email = filter_var(trim($_POST['lemail']), FILTER_SANITIZE_EMAIL);
     $password = trim($_POST['lpassword']);
 
-    // Vérifiez que les champs ne sont pas vides
-
+    // Check that the email and password fields are not empty
     if (!empty($email) && !empty($password)) {
         
-        // Valider le format de l'e-mail
-
+        // Validate the email format
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             echo "Invalid email format.";
             exit();
         }
 
-        try {
-            require 'includes/database.php'; // Assurez-vous que la connexion à la base de données est établie
-            echo"connexion à la base de donnée établie !";
+        // Include database connection
+        require 'includes/database.php';
 
+        try {
+            // Prepare a query to check user credentials
+            $query = $db->prepare("SELECT * FROM users WHERE email = :email");
+            $query->execute(['email' => $email]);
+            $user = $query->fetch();
+
+            // Verify if the user exists and check the password
+            if ($user && password_verify($password, $user['password'])) {
+                // User authenticated
+                $_SESSION['user_id'] = $user['id']; // Store user ID in session
+                header("Location: page1.php"); // Redirect to page 1
+                exit();
+            } else {
+                // Show an error message if the email or password is incorrect
+                echo "Invalid email or password.";
+            }
         } catch (PDOException $e) {
             die("Database connection failed: " . $e->getMessage());
         }
-
-        // Préparer une requête pour vérifier les informations utilisateur
-
-        $query = $db->prepare("SELECT * FROM users WHERE email = :email");
-        $query->execute(['email' => $email]);
-        $user = $query->fetch();
-
-        // Vérifiez si l'utilisateur existe et vérifiez le mot de passe
-
-        if ($user && password_verify($password, $user['password'])) {
-            // Utilisateur authentifié
-
-            $_SESSION['user_id'] = $user['id']; // Stocker l'ID utilisateur en session
-
-            header("Location: page1.php"); // Rediriger vers la page 1
-
-            exit();
-        }
-
-        // Afficher un message d'erreur générique
-
-        echo "Invalid email or password.";
     } else {
         echo "Please fill in all fields.";
     }
