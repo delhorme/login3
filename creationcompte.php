@@ -40,7 +40,7 @@
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
 						<!-- <input class="input100" type="text" name="username" placeholder="Nom d'utilisateur"> -->
 						<input class="input100" type="email" name="email" id="email" placeholder="Votre Email" required>
-						<span class="focus-input100"></span>
+						<span class="focus-input100"></span>	
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter password">
@@ -125,7 +125,7 @@
 			echo "les champs ne sont pas tous remplis !";
 		}
 	}
-exit;
+	exit;
 	?>
 
 </body>
