@@ -41,5 +41,14 @@ exit;
 
     }
 }
-
+try {
+    $q = $db->prepare("INSERT INTO users (email, password) VALUES(:email, :password)");
+    $q->execute([
+        'email' => $email,
+        'password' => $hashpass
+    ]);
+    echo "Utilisateur créé avec succès !";
+} catch (PDOException $e) {
+    echo "Erreur lors de l'insertion : " . $e->getMessage();
+}
 ?>
