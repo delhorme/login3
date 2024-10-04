@@ -36,6 +36,10 @@
 					<span class="login100-form-title">
 						Bravo !
 					</span>
+					
+					<a href="index.php" class="txt3">
+							Retour à la page de connexion
+						</a>
 
 
 </body>
