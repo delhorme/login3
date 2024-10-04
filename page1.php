@@ -36,10 +36,12 @@
 					<span class="login100-form-title">
 						Bravo !
 					</span>
-					
-					<a href="index.php" class="txt3">
+
+					<div class="flex-col-c p-t-125 p-b-40">
+						<a href="index.php" class="txt3">
 							Retour à la page de connexion
 						</a>
+					</div>
 
 
 </body>
