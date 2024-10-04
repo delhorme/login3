@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+
 <head>
 	<title>Test - création de compte</title>
 	<meta charset="UTF-8">
