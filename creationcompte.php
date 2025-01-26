@@ -93,7 +93,7 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 	<!--===============================================================================================-->
 	<script src="js/main.js"></script>
-
+	include 'includes/database.php';
 	<?php
 
 	if (isset($_POST['formsend'])) {
