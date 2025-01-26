@@ -93,41 +93,44 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 	<!--===============================================================================================-->
 	<script src="js/main.js"></script>
-	include 'includes/database.php';
+
 	<?php
+if (isset($_POST['formsend'])) {
+    extract($_POST);
 
-	if (isset($_POST['formsend'])) {
+    if (!empty($password) && !empty($cpassword) && !empty($email)) {
 
-		extract($_POST);
+        if ($password == $cpassword) {
+            $options = [
+                'cost' => 12,
+            ];
 
-		if (!empty($password) && !empty($cpassword) && !empty($email)) {
+            $hashpass = password_hash($password, PASSWORD_BCRYPT, $options);
 
-			if ($password == $cpassword) {
-				$options = [
-					'cost' => 12,
-				];
+            include 'includes/database.php'; // Inclure la connexion
 
-				$hashpass = password_hash($password, PASSWORD_BCRYPT, $options);
+            if ($db) { // Vérifier si la connexion est établie
+                // Connexion réussie, on peut insérer dans la base
+                $q = $db->prepare("INSERT INTO users (email, password) VALUES(:email, :password)");
+                $q->execute([
+                    'email' => $email,
+                    'password' => $hashpass
+                ]);
+                echo "Inscription réussie !";
+            } else {
+                // Si la connexion échoue
+                echo "Erreur de connexion à la base de données.";
+            }
+        } else {
+            echo "Les mots de passe ne correspondent pas.";
+        }
 
-				include 'includes/database.php';
-				global $db;
+    } else {
+        echo "Les champs ne sont pas tous remplis !";
+    }
+}
+?>
 
-				$q = $db->prepare("INSERT INTO users (email,password) VALUES(:email,:password)");
-				$q->execute([
-					'email' => $email,
-					'password' => $hashpass
-
-				]);
-
-			}
-
-		} else {
-			echo "les champs ne sont pas tous remplis !";
-		}
-	}
-
-	exit;
-	?>
 
 </body>
 
