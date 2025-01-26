@@ -1,7 +1,7 @@
 <?php
 define('HOST', 'localhost');
 define('DB_NAME', 'u789471193_site');
-define('USER', 'root');
+define('USER', 'u789471193_admin');
 define('PASS', '~Vd!ustR7*2G');
 
 try {
