@@ -1,5 +1,5 @@
 <?php
-define('HOST', '154.56.32.30');
+define('HOST', 'sitedetest.store');
 define('DB_NAME', 'u789471193_site');
 define('USER', 'u789471193_admin');
 define('PASS', '~Vd!ustR7*2G');
